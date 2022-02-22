@@ -1,0 +1,10 @@
+/* Add application styles & imports to this file! */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+:root {
+  --color-video-playlist-progress: 120, 202, 149;
+  --color-video-playlist-background: 120, 202, 149;
+}

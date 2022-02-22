@@ -1,0 +1,3 @@
+<ng-container *ngIf="courseService.course$ | async as course">
+  <app-play-list [course]="course"></app-play-list>
+</ng-container>

@@ -1,0 +1,79 @@
+<table class="table-auto min-w-full mb-4 text-left border">
+  <thead class="bg-black flex text-left">
+    <tr class="flex w-full">
+      <ng-container *ngFor="let column of tableColumns">
+        <th
+          class="text-sm font-medium text-white px-6 py-2 break-normal w-1/4"
+          *ngIf="column.tableDisplay"
+        >
+          {{ column.label }}
+        </th>
+      </ng-container>
+      <th class="text-sm font-medium text-white px-6 py-2 break-normal w-1/4">
+        Actions
+      </th>
+    </tr>
+  </thead>
+  <!-- justify-between -->
+  <tbody
+    class="bg-grey-light flex flex-col overflow-y-scroll text-left"
+    style="height: 50vh;"
+  >
+    <tr
+      *ngFor="let row of data; index as i"
+      class="flex"
+      [ngClass]="{ 'bg-gray-200': i % 2 !== 0 }"
+    >
+      <ng-container *ngFor="let column of tableColumns">
+        <td
+          class="text-sm text-gray-900 font-light break-normal w-1/4"
+          *ngIf="column.tableDisplay"
+        >
+          {{
+            column.data
+              ? column.data(row)
+              : column.dateFormat
+              ? (row[column.name] | date: column.dateFormat)
+              : row[column.name]
+          }}
+        </td>
+      </ng-container>
+      <td>
+        <button
+          type="button"
+          class="
+            flex-row
+            w-full
+            h-8
+            rounded-md
+            border
+            bg-gray-300
+            font-bold
+            text-gray-500
+            hover:bg-gray-200 hover:text-gray-600
+          "
+          (click)="edit.emit(row['id'])"
+        >
+          Edit
+        </button>
+        <button
+          type="button"
+          class="
+            flex-row
+            w-full
+            h-8
+            rounded-md
+            border
+            bg-gray-300
+            font-bold
+            text-gray-500
+            hover:bg-gray-200 hover:text-gray-600
+          "
+          (click)="delete.emit(row['id'])"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

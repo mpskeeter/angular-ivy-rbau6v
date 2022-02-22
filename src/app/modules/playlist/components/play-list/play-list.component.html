@@ -1,0 +1,38 @@
+<div class="flex h-screen">
+  <div class="w-8/12 flex-col flex align-items justify-center">
+    <div class="sticky top-0 overflow-none">
+      <ng-template #contentContainer></ng-template>
+    </div>
+  </div>
+  <ng-container *ngIf="course">
+    <div class="relative flex-1 flex-col h-full">
+      <div class="bg-[#fafafa] rounded h-full">
+        <div class="sticky top-0">
+          <div class="bg-[#cccccc] flex flex-row items-center px-2 py-4">
+            <img [src]="course.image" alt="" class="w-20 mr-3" />
+            <p class="text-xl">{{ course.description | truncate: 30 }}</p>
+          </div>
+          <app-play-list-meta
+            [lessonsWatched]="lessonsWatched"
+            [numberOfLessons]="numberOfLessons"
+            [progress]="(lessonsWatched / numberOfLessons) * 100"
+          ></app-play-list-meta>
+        </div>
+        <ul class="overflow-y-auto">
+          <li
+            *ngFor="
+              let item of service.items$ | async;
+              let index = index;
+              let last = last
+            "
+          >
+            <app-play-list-item
+              [item]="item"
+              [watched]="isWatched(item.id)"
+            ></app-play-list-item>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </ng-container>
+</div>

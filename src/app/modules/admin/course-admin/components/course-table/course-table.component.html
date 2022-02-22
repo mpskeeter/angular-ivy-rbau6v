@@ -1,0 +1,8 @@
+<div>
+  <app-table
+    [tableColumns]="tableColumns"
+    [data]="service.courses$ | async"
+    (edit)="edit($event)"
+    (delete)="delete($event)"
+  ></app-table>
+</div>

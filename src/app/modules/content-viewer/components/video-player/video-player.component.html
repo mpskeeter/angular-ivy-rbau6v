@@ -1,0 +1,14 @@
+<div class="w-full p-4 align-center justify-items">
+  <video
+    controls
+    autoplay="autoPlay"
+    muted
+    class="w-full aspect-video"
+    [src]="source?.url"
+    (ended)="onVideoEnded()"
+    #video
+  ></video>
+  <div>
+    Playing Video {{ currentSourceSeq }} of {{ currentItem.sources.length }}
+  </div>
+</div>

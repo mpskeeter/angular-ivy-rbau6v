@@ -1,0 +1,92 @@
+<form [formGroup]="Form" class="w-full max-w-lg mt-4">
+  <pre> {{ Form.value | json }} </pre>
+  <input
+    class="
+      block
+      bg-gray-200
+      text-gray-700
+      border-red-500
+      rounded
+      px-1
+      w-full
+      h-12
+    "
+    name="id"
+    formControlName="id"
+    type="hidden"
+  />
+
+  <ng-container class="w-full" *ngFor="let element of form">
+    <app-form-input
+      class="p-px w-1/2 ml-2.5"
+      [label]="element.name"
+      [name]="element.name"
+      [placeholder]="element.label"
+      [required]="element.required"
+    >
+      <ng-container [ngSwitch]="element.type">
+        <textarea
+          *ngSwitchCase="'textarea'"
+          [id]="element.name"
+          [name]="element.name"
+          [formControlName]="element.name"
+          class="
+            block
+            w-full
+            bg-gray-200
+            text-gray-700
+            border-red-500
+            rounded
+            py-3
+            px-1
+            mb-3
+            leading-tight
+            focus:outline-none focus:bg-white focus:border-gray-500
+          "
+          [placeholder]="element.label"
+        ></textarea>
+
+        <select
+          *ngSwitchCase="'select'"
+          class="
+            block
+            bg-gray-200
+            text-gray-700
+            border-red-500
+            rounded
+            px-1
+            w-full
+            h-12
+          "
+          [name]="element.name"
+          [formControlName]="element.name"
+        >
+          <option *ngFor="let option of element.options" [value]="option.id">
+            {{ option.name }}
+          </option>
+        </select>
+        <input
+          *ngSwitchDefault
+          class="
+            block
+            bg-gray-200
+            text-gray-700
+            border-red-500
+            rounded
+            px-1
+            w-full
+            h-12
+          "
+          [name]="element.name"
+          [formControlName]="element.name"
+          [type]="element.type"
+          [placeholder]="element.label"
+        />
+      </ng-container>
+    </app-form-input>
+  </ng-container>
+
+  <div class="grid">
+    <button class="button w-20 h-10 bg-slate-400" (click)="save()">Save</button>
+  </div>
+</form>

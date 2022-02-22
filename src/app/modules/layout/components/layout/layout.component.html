@@ -1,0 +1,28 @@
+<nav class="mt-10 fixed w-full z-10 top-0">
+  <div class="ml-6 flex items-center">
+    <!-- branding -->
+    <div class="flex w-full justify-start">
+      <app-brand class="h-full w-16"></app-brand>
+    </div>
+    <!-- top navbar -->
+    <div class="flex w-full items-center justify-between">
+      <ul class="flex items-center">
+        <app-menu-item
+          *ngFor="let item of menu.mainMenu$ | async"
+          [item]="item"
+          text_color="text-app-base"
+        ></app-menu-item>
+      </ul>
+    </div>
+    <!-- user avatar -->
+    <div class="mr-6 flex w-full justify-end">
+      <app-user-avatar></app-user-avatar>
+    </div>
+  </div>
+</nav>
+<div class="relative mt-28">
+  <div class="flex flex-1 items-center h-8 bg-app-secondary">
+    <div class="ml-10 text-app-secondary">Team Learning Center</div>
+  </div>
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,32 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2018", "dom"]
+    // "paths": {
+    //   "@shared": ["src/app/modules/shared/index.ts"],
+    //   "@shared-types": ["src/app/modules/shared-types/index.ts"],
+    //   "@layout5": ["src/app/modules/layout-5/index.ts"],
+    //   "@content-viewer": ["src/app/modules/content-viewer/index.ts"],
+    //   "@course-playlist": ["src/app/modules/course-playlist/index.ts"],
+    //   "@menu": ["src/app/modules/menu/index.ts"],
+    //   "@course": ["src/app/modules/course/index.ts"],
+    //   "@user-course": ["src/app/modules/user-course/index.ts"]
+    // }
+  },
+  "angularCompilerOptions": {
+    "enableIvy": true,
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
+  }
+}

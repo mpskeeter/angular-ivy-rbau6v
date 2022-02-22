@@ -1,0 +1,33 @@
+<div class="bg-stone-400 flex flex-row flex-wrap justify-between py-2">
+  <div class="flex flex-1 items-center text-xs">
+    <span class="pl-4 pr-3">{{ lessonsWatched }}</span>
+    <span
+      class="
+        top-0
+        left-0
+        h-5
+        w-full
+        relative
+        max-w-sm
+        bg-[#fafafa]
+        flex-1
+        rounded-full
+        overflow-hidden
+      "
+    >
+      <span
+        class="absolute top-0 left-0 w-0 z-10 h-full bg-app-secondary"
+        [style.width.%]="progress"
+      >
+      </span>
+    </span>
+    <span class="pl-3 pr-3">{{ numberOfLessons }} videos</span>
+  </div>
+  <div class="text-xs flex flex-row items-center">
+    <span class="pr-2">Autoplay</span>
+    <app-toggle
+      [(toggle)]="autoPlay"
+      (toggleChange)="toggleAutoPlay()"
+    ></app-toggle>
+  </div>
+</div>

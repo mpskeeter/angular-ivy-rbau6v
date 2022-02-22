@@ -1,0 +1,17 @@
+<ng-container class="flex flex-1" *ngIf="service.currentUser$ | async as user">
+  <div class="flex-col items-center bg-app-primary">
+    <app-user-avatar></app-user-avatar>
+    <p>or maybe a silhouette</p>
+    <div class="pt-4">
+      <div class="text-center">
+        {{ completed(user.enrollments) }} Courses Completed
+      </div>
+      <div class="text-center">
+        {{ assigned(user.enrollments) }} Courses Assigned
+      </div>
+      <div class="text-center">
+        {{ in_progress(user.enrollments) }} Courses In Porgress
+      </div>
+    </div>
+  </div>
+</ng-container>
