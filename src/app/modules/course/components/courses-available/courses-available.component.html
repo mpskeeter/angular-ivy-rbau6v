@@ -24,7 +24,7 @@
             shadow-md shadow-black
             hover:cursor-pointer
           "
-          *ngFor="let category of service.categories$ | async"
+          *ngFor="let category of service.item$ | async"
           [routerLink]="['/course/category', category.id]"
         >
           <div class="h-full w-1/3">

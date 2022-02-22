@@ -9,6 +9,6 @@ export class CoursesAvailableComponent implements OnInit {
   constructor(public service: CourseCategoryService) {}
 
   ngOnInit() {
-    this.service.getAll();
+    this.service.get();
   }
 }
