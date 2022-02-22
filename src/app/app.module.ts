@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angul'
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
@@ -10,6 +11,7 @@ import { HelloComponent } from './hello.component';
 
 @NgModule({
   imports: [
+    CommonModule,
     BrowserModule,
     FormsModule,
     // AppRoutingModule,
