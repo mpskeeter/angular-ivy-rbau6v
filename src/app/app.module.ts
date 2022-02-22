@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
-import { SharedModule, LayoutModule } from './modules';
+// import { SharedModule, LayoutModule } from './modules';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
@@ -13,8 +13,8 @@ import { HelloComponent } from './hello.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    SharedModule,
-    LayoutModule,
+    // SharedModule,
+    // LayoutModule,
   ],
   declarations: [AppComponent, HelloComponent],
   bootstrap: [AppComponent],
